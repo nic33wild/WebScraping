@@ -15,8 +15,9 @@ result = requests.get("https://www.google.com/")
 # To make sure that the website is accessible, we can
 # ensure that we obtain a 200 OK response to indicate
 # that the page is indeed present:
-#print(result.status_code)
-#print('---------------------------------------------TEST 1---------------------------------------------')
+print('---------------------------------------------STATUS CODE RESPONSE---------------------------------------------')
+print(result.status_code)
+
 
 # For other potential status codes you may encounter,
 # consult the following Wikipedia page:
@@ -24,8 +25,9 @@ result = requests.get("https://www.google.com/")
 
 # We can also check the HTTP header of the website to
 # verify that we have indeed accessed the correct page:
-#print(result.headers)
-#print('---------------------------------------------TEST 2---------------------------------------------')
+print('---------------------------------------------HEADERS---------------------------------------------')
+print(result.headers)
+
 
 # For more information on HTTP headers and the information
 # one can obtain from them, you may consult:
@@ -44,15 +46,17 @@ soup = BeautifulSoup(src, 'lxml')
 # Now that the page source has been processed via Beautifulsoup
 # we can access specific information directly from it. For instance,
 # say we want to see a list of all of the links on the page:
+print('---------------------------------------------ALL A TAGS---------------------------------------------')
 links = soup.find_all("a")
 print(links)
 print("\n")
-print('---------------------------------------------TEST 3---------------------------------------------')
+
 
 # Perhaps we just want to extract the link that has contains the text
 # "About" on the page instead of every link. We can use the built-in
 # "text" function to access the text content between the <a> </a>
 # tags.
+print('---------------------------------------------link that contains propos---------------------------------------------')
 for link in links:
     if "propos" in link.text:
         print(link)
